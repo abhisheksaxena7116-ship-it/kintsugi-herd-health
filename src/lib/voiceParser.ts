@@ -54,7 +54,7 @@ export function parseSpeech(input: string): Partial<ReportDraft> & { count?: Rep
   }
 
   const numMatch = text.match(/(\d+)\s*(cows?|buffalo|goats?|animals?|गाय|भैंस|बकरी|पशु)/);
-  if (numMatch) {
+  if (numMatch?.[1]) {
     const n = parseInt(numMatch[1], 10);
     out.count = n <= 1 ? "1" : n <= 5 ? "2-5" : n <= 10 ? "6-10" : "10+";
   } else if (has(text, ["many", "several", "kai", "कई", "sab", "सब"])) {
