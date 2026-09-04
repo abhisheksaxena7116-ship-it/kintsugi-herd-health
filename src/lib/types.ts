@@ -87,6 +87,7 @@ export interface ExposureRecord {
 
 export interface HealthCase {
   id: string;                 // PH-1024
+  localId?: string;           // LOCAL-xxxx id assigned before sync
   animalId?: string;
   animalName: string;
   species: Species;
