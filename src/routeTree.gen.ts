@@ -14,6 +14,7 @@ import { Route as ReportRouteImport } from './routes/report'
 import { Route as AnimalsIndexRouteImport } from './routes/animals.index'
 import { Route as AnimalsIdRouteImport } from './routes/animals.$id'
 import { Route as AssessmentIdRouteImport } from './routes/assessment.$id'
+import { Route as CasesIdRouteImport } from './routes/cases.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,12 +41,18 @@ const AssessmentIdRoute = AssessmentIdRouteImport.update({
   path: '/assessment/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CasesIdRoute = CasesIdRouteImport.update({
+  id: '/cases/$id',
+  path: '/cases/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/report': typeof ReportRoute
   '/animals/$id': typeof AnimalsIdRoute
   '/assessment/$id': typeof AssessmentIdRoute
+  '/cases/$id': typeof CasesIdRoute
   '/animals/': typeof AnimalsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/report': typeof ReportRoute
   '/animals/$id': typeof AnimalsIdRoute
   '/assessment/$id': typeof AssessmentIdRoute
+  '/cases/$id': typeof CasesIdRoute
   '/animals': typeof AnimalsIndexRoute
 }
 export interface FileRoutesById {
@@ -61,19 +69,33 @@ export interface FileRoutesById {
   '/report': typeof ReportRoute
   '/animals/$id': typeof AnimalsIdRoute
   '/assessment/$id': typeof AssessmentIdRoute
+  '/cases/$id': typeof CasesIdRoute
   '/animals/': typeof AnimalsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/report' | '/animals/$id' | '/assessment/$id' | '/animals/'
+  fullPaths:
+    | '/'
+    | '/report'
+    | '/animals/$id'
+    | '/assessment/$id'
+    | '/cases/$id'
+    | '/animals/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/report' | '/animals/$id' | '/assessment/$id' | '/animals'
+  to:
+    | '/'
+    | '/report'
+    | '/animals/$id'
+    | '/assessment/$id'
+    | '/cases/$id'
+    | '/animals'
   id:
     | '__root__'
     | '/'
     | '/report'
     | '/animals/$id'
     | '/assessment/$id'
+    | '/cases/$id'
     | '/animals/'
   fileRoutesById: FileRoutesById
 }
@@ -82,6 +104,7 @@ export interface RootRouteChildren {
   ReportRoute: typeof ReportRoute
   AnimalsIdRoute: typeof AnimalsIdRoute
   AssessmentIdRoute: typeof AssessmentIdRoute
+  CasesIdRoute: typeof CasesIdRoute
   AnimalsIndexRoute: typeof AnimalsIndexRoute
 }
 
@@ -122,6 +145,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AssessmentIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cases/$id': {
+      id: '/cases/$id'
+      path: '/cases/$id'
+      fullPath: '/cases/$id'
+      preLoaderRoute: typeof CasesIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -130,6 +160,7 @@ const rootRouteChildren: RootRouteChildren = {
   ReportRoute: ReportRoute,
   AnimalsIdRoute: AnimalsIdRoute,
   AssessmentIdRoute: AssessmentIdRoute,
+  CasesIdRoute: CasesIdRoute,
   AnimalsIndexRoute: AnimalsIndexRoute,
 }
 export const routeTree = rootRouteImport
