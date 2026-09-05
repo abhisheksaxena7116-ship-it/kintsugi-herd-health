@@ -10,20 +10,63 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AlertsRouteImport } from './routes/alerts'
+import { Route as ChecklistRouteImport } from './routes/checklist'
+import { Route as FirstAidRouteImport } from './routes/first-aid'
+import { Route as MoreRouteImport } from './routes/more'
+import { Route as PendingRouteImport } from './routes/pending'
 import { Route as ReportRouteImport } from './routes/report'
+import { Route as VaccinationsRouteImport } from './routes/vaccinations'
+import { Route as VetHelpRouteImport } from './routes/vet-help'
 import { Route as AnimalsIndexRouteImport } from './routes/animals.index'
 import { Route as AnimalsIdRouteImport } from './routes/animals.$id'
 import { Route as AssessmentIdRouteImport } from './routes/assessment.$id'
 import { Route as CasesIdRouteImport } from './routes/cases.$id'
+import { Route as ExposureIdRouteImport } from './routes/exposure.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlertsRoute = AlertsRouteImport.update({
+  id: '/alerts',
+  path: '/alerts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChecklistRoute = ChecklistRouteImport.update({
+  id: '/checklist',
+  path: '/checklist',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FirstAidRoute = FirstAidRouteImport.update({
+  id: '/first-aid',
+  path: '/first-aid',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MoreRoute = MoreRouteImport.update({
+  id: '/more',
+  path: '/more',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PendingRoute = PendingRouteImport.update({
+  id: '/pending',
+  path: '/pending',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReportRoute = ReportRouteImport.update({
   id: '/report',
   path: '/report',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VaccinationsRoute = VaccinationsRouteImport.update({
+  id: '/vaccinations',
+  path: '/vaccinations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VetHelpRoute = VetHelpRouteImport.update({
+  id: '/vet-help',
+  path: '/vet-help',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AnimalsIndexRoute = AnimalsIndexRouteImport.update({
@@ -46,65 +89,126 @@ const CasesIdRoute = CasesIdRouteImport.update({
   path: '/cases/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ExposureIdRoute = ExposureIdRouteImport.update({
+  id: '/exposure/$id',
+  path: '/exposure/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/alerts': typeof AlertsRoute
+  '/checklist': typeof ChecklistRoute
+  '/first-aid': typeof FirstAidRoute
+  '/more': typeof MoreRoute
+  '/pending': typeof PendingRoute
   '/report': typeof ReportRoute
+  '/vaccinations': typeof VaccinationsRoute
+  '/vet-help': typeof VetHelpRoute
   '/animals/$id': typeof AnimalsIdRoute
   '/assessment/$id': typeof AssessmentIdRoute
   '/cases/$id': typeof CasesIdRoute
+  '/exposure/$id': typeof ExposureIdRoute
   '/animals/': typeof AnimalsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/alerts': typeof AlertsRoute
+  '/checklist': typeof ChecklistRoute
+  '/first-aid': typeof FirstAidRoute
+  '/more': typeof MoreRoute
+  '/pending': typeof PendingRoute
   '/report': typeof ReportRoute
+  '/vaccinations': typeof VaccinationsRoute
+  '/vet-help': typeof VetHelpRoute
   '/animals/$id': typeof AnimalsIdRoute
   '/assessment/$id': typeof AssessmentIdRoute
   '/cases/$id': typeof CasesIdRoute
+  '/exposure/$id': typeof ExposureIdRoute
   '/animals': typeof AnimalsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/alerts': typeof AlertsRoute
+  '/checklist': typeof ChecklistRoute
+  '/first-aid': typeof FirstAidRoute
+  '/more': typeof MoreRoute
+  '/pending': typeof PendingRoute
   '/report': typeof ReportRoute
+  '/vaccinations': typeof VaccinationsRoute
+  '/vet-help': typeof VetHelpRoute
   '/animals/$id': typeof AnimalsIdRoute
   '/assessment/$id': typeof AssessmentIdRoute
   '/cases/$id': typeof CasesIdRoute
+  '/exposure/$id': typeof ExposureIdRoute
   '/animals/': typeof AnimalsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/alerts'
+    | '/checklist'
+    | '/first-aid'
+    | '/more'
+    | '/pending'
     | '/report'
+    | '/vaccinations'
+    | '/vet-help'
     | '/animals/$id'
     | '/assessment/$id'
     | '/cases/$id'
+    | '/exposure/$id'
     | '/animals/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/alerts'
+    | '/checklist'
+    | '/first-aid'
+    | '/more'
+    | '/pending'
     | '/report'
+    | '/vaccinations'
+    | '/vet-help'
     | '/animals/$id'
     | '/assessment/$id'
     | '/cases/$id'
+    | '/exposure/$id'
     | '/animals'
   id:
     | '__root__'
     | '/'
+    | '/alerts'
+    | '/checklist'
+    | '/first-aid'
+    | '/more'
+    | '/pending'
     | '/report'
+    | '/vaccinations'
+    | '/vet-help'
     | '/animals/$id'
     | '/assessment/$id'
     | '/cases/$id'
+    | '/exposure/$id'
     | '/animals/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AlertsRoute: typeof AlertsRoute
+  ChecklistRoute: typeof ChecklistRoute
+  FirstAidRoute: typeof FirstAidRoute
+  MoreRoute: typeof MoreRoute
+  PendingRoute: typeof PendingRoute
   ReportRoute: typeof ReportRoute
+  VaccinationsRoute: typeof VaccinationsRoute
+  VetHelpRoute: typeof VetHelpRoute
   AnimalsIdRoute: typeof AnimalsIdRoute
   AssessmentIdRoute: typeof AssessmentIdRoute
   CasesIdRoute: typeof CasesIdRoute
+  ExposureIdRoute: typeof ExposureIdRoute
   AnimalsIndexRoute: typeof AnimalsIndexRoute
 }
 
@@ -117,11 +221,60 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/alerts': {
+      id: '/alerts'
+      path: '/alerts'
+      fullPath: '/alerts'
+      preLoaderRoute: typeof AlertsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checklist': {
+      id: '/checklist'
+      path: '/checklist'
+      fullPath: '/checklist'
+      preLoaderRoute: typeof ChecklistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/first-aid': {
+      id: '/first-aid'
+      path: '/first-aid'
+      fullPath: '/first-aid'
+      preLoaderRoute: typeof FirstAidRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/more': {
+      id: '/more'
+      path: '/more'
+      fullPath: '/more'
+      preLoaderRoute: typeof MoreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pending': {
+      id: '/pending'
+      path: '/pending'
+      fullPath: '/pending'
+      preLoaderRoute: typeof PendingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/report': {
       id: '/report'
       path: '/report'
       fullPath: '/report'
       preLoaderRoute: typeof ReportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vaccinations': {
+      id: '/vaccinations'
+      path: '/vaccinations'
+      fullPath: '/vaccinations'
+      preLoaderRoute: typeof VaccinationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vet-help': {
+      id: '/vet-help'
+      path: '/vet-help'
+      fullPath: '/vet-help'
+      preLoaderRoute: typeof VetHelpRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/animals/': {
@@ -152,15 +305,30 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CasesIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/exposure/$id': {
+      id: '/exposure/$id'
+      path: '/exposure/$id'
+      fullPath: '/exposure/$id'
+      preLoaderRoute: typeof ExposureIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AlertsRoute: AlertsRoute,
+  ChecklistRoute: ChecklistRoute,
+  FirstAidRoute: FirstAidRoute,
+  MoreRoute: MoreRoute,
+  PendingRoute: PendingRoute,
   ReportRoute: ReportRoute,
+  VaccinationsRoute: VaccinationsRoute,
+  VetHelpRoute: VetHelpRoute,
   AnimalsIdRoute: AnimalsIdRoute,
   AssessmentIdRoute: AssessmentIdRoute,
   CasesIdRoute: CasesIdRoute,
+  ExposureIdRoute: ExposureIdRoute,
   AnimalsIndexRoute: AnimalsIndexRoute,
 }
 export const routeTree = rootRouteImport
