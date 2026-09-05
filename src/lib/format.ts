@@ -1,8 +1,9 @@
 export function daysUntil(iso: string): number {
-  const target = new Date(iso + "T00:00:00");
-  const now = new Date();
-  now.setHours(0, 0, 0, 0);
-  return Math.round((target.getTime() - now.getTime()) / 86400000);
+  const [y, m, d] = iso.slice(0, 10).split("-").map(Number);
+  const target = Date.UTC(y ?? 1970, (m ?? 1) - 1, d ?? 1);
+  const n = new Date();
+  const today = Date.UTC(n.getFullYear(), n.getMonth(), n.getDate());
+  return Math.round((target - today) / 86400000);
 }
 
 export function formatDate(iso: string, lang: "en" | "hi" = "en") {
